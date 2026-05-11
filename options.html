@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Silenzio settings</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #fff;
+        --text: #222;
+        --muted: #555;
+        --help: #666;
+        --section-border: #ddd;
+        --row-border: #f0f0f0;
+        --chip-bg: #f5f5f5;
+        --chip-border: #ccc;
+        --chip-hover: #ebebeb;
+        --active-bg: #1a1a1a;
+        --active-text: #fff;
+        --input-bg: #fff;
+        --primary-bg: #1a1a1a;
+        --primary-text: #fff;
+        --danger: #b00;
+        --empty: #888;
+        --code-bg: #f3f3f3;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #1f1f1f;
+          --text: #e6e6e6;
+          --muted: #aaa;
+          --help: #9a9a9a;
+          --section-border: #2e2e2e;
+          --row-border: #2a2a2a;
+          --chip-bg: #2a2a2a;
+          --chip-border: #3a3a3a;
+          --chip-hover: #333;
+          --active-bg: #e6e6e6;
+          --active-text: #1a1a1a;
+          --input-bg: #262626;
+          --primary-bg: #e6e6e6;
+          --primary-text: #1a1a1a;
+          --danger: #ff8a8a;
+          --empty: #888;
+          --code-bg: #2a2a2a;
+        }
+      }
+      body {
+        font: 14px system-ui, sans-serif;
+        max-width: 560px;
+        margin: 24px auto;
+        padding: 0 16px;
+        background: var(--bg);
+        color: var(--text);
+      }
+      h1 {
+        font-size: 20px;
+        margin: 0 0 16px;
+      }
+      section {
+        margin: 24px 0;
+        padding: 16px;
+        border: 1px solid var(--section-border);
+        border-radius: 6px;
+      }
+      h2 {
+        font-size: 13px;
+        margin: 0 0 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+      }
+      label.radio,
+      label.check {
+        display: block;
+        margin: 4px 0;
+      }
+      code {
+        background: var(--code-bg);
+        padding: 1px 4px;
+        border-radius: 3px;
+      }
+      .site-add {
+        display: flex;
+        gap: 6px;
+        margin: 8px 0;
+      }
+      .site-add input {
+        flex: 1;
+        padding: 6px 8px;
+        font: inherit;
+        background: var(--input-bg);
+        color: var(--text);
+        border: 1px solid var(--chip-border);
+        border-radius: 4px;
+      }
+      .site-add button {
+        padding: 6px 12px;
+        font: inherit;
+        background: var(--primary-bg);
+        color: var(--primary-text);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      ul.sites {
+        list-style: none;
+        padding: 0;
+        margin: 8px 0 0;
+      }
+      ul.sites li {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 0;
+        border-bottom: 1px solid var(--row-border);
+      }
+      ul.sites button {
+        font: inherit;
+        background: transparent;
+        border: none;
+        color: var(--danger);
+        cursor: pointer;
+      }
+      .empty {
+        font-style: italic;
+        color: var(--empty);
+        margin: 8px 0 0;
+      }
+      .days {
+        display: flex;
+        gap: 4px;
+        margin: 8px 0;
+        flex-wrap: wrap;
+      }
+      .days button {
+        padding: 6px 10px;
+        font: inherit;
+        background: var(--chip-bg);
+        color: var(--text);
+        border: 1px solid var(--chip-border);
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .days button.active {
+        background: var(--active-bg);
+        color: var(--active-text);
+        border-color: var(--active-bg);
+      }
+      .times {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin: 8px 0;
+      }
+      .times input {
+        font: inherit;
+        padding: 4px 6px;
+        background: var(--input-bg);
+        color: var(--text);
+        border: 1px solid var(--chip-border);
+        border-radius: 4px;
+      }
+      .global-pause {
+        display: flex;
+        gap: 6px;
+        margin-top: 8px;
+      }
+      .global-pause button {
+        padding: 6px 12px;
+        font: inherit;
+        background: var(--chip-bg);
+        color: var(--text);
+        border: 1px solid var(--chip-border);
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .help {
+        font-size: 12px;
+        color: var(--help);
+        margin: 4px 0 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Silenzio settings</h1>
+
+    <section>
+      <h2>Scope</h2>
+      <p class="help">Decide which sites Silenzio runs on. Hostname suffix match — adding <code>youtube.com</code> covers all subdomains.</p>
+      <label class="radio"><input type="radio" name="scope" value="all" /> Apply to all sites</label>
+      <label class="radio"><input type="radio" name="scope" value="allowlist" /> Only apply on listed sites</label>
+      <label class="radio"><input type="radio" name="scope" value="blocklist" /> Apply everywhere except listed sites</label>
+
+      <div class="site-add">
+        <input id="site-input" placeholder="e.g. youtube.com" />
+        <button id="site-add">Add site</button>
+      </div>
+      <ul class="sites" id="site-list"></ul>
+    </section>
+
+    <section>
+      <h2>Working hours</h2>
+      <p class="help">When enabled, Silenzio is <strong>active during</strong> these hours and inactive outside them.</p>
+      <label class="check"><input type="checkbox" id="schedule-enabled" /> Apply Silenzio only during working hours</label>
+
+      <div class="days" id="days"></div>
+      <div class="times">
+        <label>From <input type="time" id="schedule-start" /></label>
+        <label>To <input type="time" id="schedule-end" /></label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Global pause</h2>
+      <p class="help">Pause Silenzio everywhere for a fixed window.</p>
+      <div class="global-pause">
+        <button data-pause="15">Pause everywhere 15m</button>
+        <button data-pause="60">Pause everywhere 1h</button>
+        <button id="global-resume">Resume now</button>
+      </div>
+      <p id="global-status" class="help"></p>
+    </section>
+
+    <script src="options.js"></script>
+  </body>
+</html>

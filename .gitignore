@@ -1,0 +1,11 @@
+# Local Claude Code tooling — not for the public repo
+.claude/
+CLAUDE.md
+
+# Build artifacts
+silenzio-*.zip
+
+# Jekyll output if you ever build Pages locally
+_site/
+.jekyll-cache/
+.sass-cache/

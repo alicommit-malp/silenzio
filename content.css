@@ -1,0 +1,7 @@
+.silenzio-blur {
+  filter: blur(40px) !important;
+}
+
+.silenzio-blackout {
+  filter: brightness(0) !important;
+}
