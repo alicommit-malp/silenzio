@@ -4,6 +4,14 @@ A cross-browser extension that blurs or blacks out videos and images and mutes a
 
 Works on standard `<video>` players, short-form feeds (YouTube Shorts, LinkedIn feed, etc.), and all `<img>` content (JPG, PNG, GIF, WebP, SVG-as-img).
 
+**[Install from the Chrome Web Store →](https://chromewebstore.google.com/detail/pnlbpemienlnbiofmdjldbbnpfkfpndd)**
+
+## Screenshots
+
+![YouTube search results with video thumbnails blurred; Silenzio popup open showing per-type mode controls and pause buttons](screenshots/youtube-blur.png)
+
+![Amazon product listings with images blacked out by Silenzio](screenshots/amazon-blackout.png)
+
 ## Features
 
 - **Per-type modes** — independent Off / Blur / Blackout for videos and images.
@@ -15,15 +23,19 @@ Works on standard `<video>` players, short-form feeds (YouTube Shorts, LinkedIn 
 
 ## Install
 
-There is no published store version yet. Load unpacked from this repo:
-
 ### Chrome / Edge
+
+Install from the [Chrome Web Store](https://chromewebstore.google.com/detail/pnlbpemienlnbiofmdjldbbnpfkfpndd).
+
+To load from source (for development, or to try changes before a release reaches the store):
 
 1. Open `chrome://extensions` (or `edge://extensions`).
 2. Enable **Developer mode**.
 3. Click **Load unpacked** → select this repo's root directory.
 
 ### Firefox
+
+Not yet published on AMO. Load temporarily:
 
 1. Open `about:debugging#/runtime/this-firefox`.
 2. Click **Load Temporary Add-on…** → pick [manifest.json](manifest.json).
