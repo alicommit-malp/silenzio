@@ -98,3 +98,48 @@ Host [PRIVACY.md](PRIVACY.md) somewhere reachable and paste that URL into the li
 
 - GitHub blob: `https://github.com/<your-username>/silenzio/blob/main/PRIVACY.md` — works, reviewers accept it.
 - GitHub Pages: enable Pages on the repo, then `https://<your-username>.github.io/silenzio/PRIVACY` — cleaner URL.
+
+Live value: `https://alicommit-malp.github.io/silenzio/PRIVACY/`
+
+---
+
+## Firefox AMO listing metadata
+
+These are the AMO-specific fields (distinct from the Chrome dev console). Reuse for any AMO re-submission and as a reference for the Edge listing.
+
+### Screenshot captions
+
+1. `YouTube search results with video thumbnails blurred; the Silenzio popup shows per-type Off / Blur / Blackout toggles and pause buttons.`
+2. `Blackout mode hiding product images on a shopping page.`
+
+### Tags
+
+```text
+productivity, focus, privacy, distraction-free, video, blur, mute
+```
+
+### Homepage
+
+```text
+https://alicommit-malp.github.io/silenzio/
+```
+
+### Contributions URL
+
+Blank unless a GitHub Sponsors / donation link exists.
+
+### Developer Comments (public on the listing)
+
+```text
+Silenzio is open source under the MIT license. On first install, open the Firefox extensions menu (puzzle-piece icon) → Silenzio → "Always allow on all websites" so the content script can run — Firefox MV3 requires this host-permission grant explicitly. Source, issues, and the privacy policy: https://github.com/alicommit-malp/silenzio
+```
+
+### UUID / add-on ID
+
+`silenzio@silenzio.local` — set via `browser_specific_settings.gecko.id` in the manifest. Permanent on AMO after first submission; cannot be changed later.
+
+### Whiteboard (private; visible to AMO reviewers, persists across versions)
+
+```text
+No account or login required to test. After install, grant "Always allow on all websites" via the extensions menu (standard Firefox MV3 host-permission grant) — without it the content script does not inject. Visit youtube.com or linkedin.com: videos and image thumbnails blur by default. The popup exposes independent video/image mode toggles and per-site pause; "Settings →" opens scope rules and a working-hours schedule. Source is unminified with no build step — the uploaded ZIP is the source. Repo: https://github.com/alicommit-malp/silenzio
+```
