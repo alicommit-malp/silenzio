@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate icons/icon-{16,32,48,128}.png.
+"""Regenerate extension/icons/icon-{16,32,48,128}.png.
 
 Run from repo root: python3 scripts/make-icons.py
 
@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(ROOT, "icons")
+OUT = os.path.join(ROOT, "extension", "icons")
 os.makedirs(OUT, exist_ok=True)
 
 BG = (26, 26, 26, 255)

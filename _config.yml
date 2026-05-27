@@ -9,13 +9,7 @@ exclude:
   - silenzio-*.zip
   - CLAUDE.md
   - .claude/
-  - manifest.json
-  - content.js
-  - content.css
-  - popup.html
-  - popup.js
-  - options.html
-  - options.js
+  - extension/
 
 # Make .md links work cleanly under Pages.
 permalink: pretty
