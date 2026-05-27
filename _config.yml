@@ -1,0 +1,21 @@
+title: Silenzio
+description: Cross-browser extension that blurs videos and images and mutes audio across the web.
+theme: jekyll-theme-cayman
+
+# Files in the repo that should NOT appear on the rendered Pages site.
+exclude:
+  - STORE_LISTING.md
+  - scripts/
+  - silenzio-*.zip
+  - CLAUDE.md
+  - .claude/
+  - manifest.json
+  - content.js
+  - content.css
+  - popup.html
+  - popup.js
+  - options.html
+  - options.js
+
+# Make .md links work cleanly under Pages.
+permalink: pretty

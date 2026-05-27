@@ -58,7 +58,7 @@ Click the toolbar icon to open the popup:
 
 ## Privacy
 
-Silenzio collects no data, transmits nothing, and uses no third-party scripts. See [PRIVACY.md](docs/PRIVACY.md) for the full policy and permission justifications.
+Silenzio collects no data, transmits nothing, and uses no third-party scripts. See [PRIVACY.md](PRIVACY.md) for the full policy and permission justifications.
 
 ## Development
 
