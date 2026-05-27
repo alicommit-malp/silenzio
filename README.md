@@ -31,14 +31,14 @@ To load from source (for development, or to try changes before a release reaches
 
 1. Open `chrome://extensions` (or `edge://extensions`).
 2. Enable **Developer mode**.
-3. Click **Load unpacked** → select this repo's root directory.
+3. Click **Load unpacked** → select this repo's [extension/](extension/) subdirectory.
 
 ### Firefox
 
 Not yet published on AMO. Load temporarily:
 
 1. Open `about:debugging#/runtime/this-firefox`.
-2. Click **Load Temporary Add-on…** → pick [manifest.json](manifest.json).
+2. Click **Load Temporary Add-on…** → pick [extension/manifest.json](extension/manifest.json).
 3. Click the Silenzio toolbar icon → puzzle-piece menu → Silenzio → **Always allow on all websites**. (One-time; Firefox MV3 requires explicit host-permission grant.)
 
 ## Usage
