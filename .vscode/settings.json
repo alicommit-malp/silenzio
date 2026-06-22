@@ -1,0 +1,10 @@
+{
+    "workbench.colorCustomizations": {
+        "[Vira*]": {},
+        "titleBar.activeBackground": "#2b3216",
+        "titleBar.activeForeground": "#ffffff",
+        "titleBar.inactiveBackground": "#272c16",
+        "titleBar.inactiveForeground": "#ffffffcc",
+        "titleBar.border": "#171910"
+    }
+}
