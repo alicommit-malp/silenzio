@@ -1,13 +1,13 @@
 # Silenzio Privacy Policy
 
-_Last updated: 2026-05-11_
+_Last updated: 2026-06-22_
 
 Silenzio does not collect, transmit, store on remote servers, or share any personal information, browsing history, or page contents.
 
 ## What the extension does
 
 - Reads the DOM of pages you visit in order to find `<video>`, `<audio>`, and `<img>` elements, then applies local CSS filter classes and sets the `muted` property on media elements. All processing happens in your browser.
-- Stores its own settings — selected modes, scope rules, pause timers, working-hours schedule — locally via the browser's `chrome.storage.local` API. This data never leaves your device.
+- Stores its own settings — selected modes, scope rules, per-URL override rules, pause timers, working-hours schedule, and the long-press-reveal preference — locally via the browser's `chrome.storage.local` API. This data never leaves your device.
 
 ## What the extension does NOT do
 

@@ -4,6 +4,8 @@ const DEFAULTS = {
   scope: { type: "all", sites: [] },
   pause: { globalUntil: 0, siteUntil: {} },
   schedule: { enabled: false, days: [1, 2, 3, 4, 5], start: "09:00", end: "17:00" },
+  peek: { enabled: true },
+  rules: [],
 };
 
 const siteEl = document.getElementById("site");
@@ -25,6 +27,8 @@ function merge(saved) {
       siteUntil: { ...(saved.pause?.siteUntil || {}) },
     },
     schedule: { ...DEFAULTS.schedule, ...(saved.schedule || {}) },
+    peek: { ...DEFAULTS.peek, ...(saved.peek || {}) },
+    rules: Array.isArray(saved.rules) ? saved.rules.slice() : [],
   };
 }
 

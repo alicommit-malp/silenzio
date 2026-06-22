@@ -211,6 +211,27 @@
     </section>
 
     <section>
+      <h2>Per-URL rules</h2>
+      <p class="help">Override modes for specific URLs. Pattern is <code>hostname/path</code>; end the path with <code>*</code> for prefix match. Hostname is suffix-matched (so <code>linkedin.com</code> covers <code>www.linkedin.com</code>). First match wins; otherwise the modes above apply.</p>
+      <div class="site-add">
+        <input id="rule-pattern" placeholder="e.g. linkedin.com/feed*" />
+        <select id="rule-mode">
+          <option value="off">Off</option>
+          <option value="blur">Blur</option>
+          <option value="blackout" selected>Blackout</option>
+        </select>
+        <button id="rule-add-btn">Add</button>
+      </div>
+      <ul class="sites" id="rule-list"></ul>
+    </section>
+
+    <section>
+      <h2>Long-press reveal</h2>
+      <p class="help">Hold a blurred image or video for ~400ms to peek at it; release to re-apply the filter. Long-press also suppresses the link click, so peeking a blurred linked image won't navigate.</p>
+      <label class="check"><input type="checkbox" id="peek-enabled" /> Enable long-press reveal</label>
+    </section>
+
+    <section>
       <h2>Global pause</h2>
       <p class="help">Pause Silenzio everywhere for a fixed window.</p>
       <div class="global-pause">

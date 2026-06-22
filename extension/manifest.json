@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Silenzio",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Blur or black out videos and images and mute audio across the web — with scope rules, pause timers, and working hours.",
   "permissions": ["storage", "activeTab"],
   "host_permissions": ["<all_urls>"],

@@ -27,7 +27,11 @@ Works on standard players (YouTube), short-form feeds (YouTube Shorts, LinkedIn 
 
 Scope rules — apply on all sites, only on a list of sites you add, or everywhere except a list. Hostname suffix match means one entry like "youtube.com" covers www.youtube.com and m.youtube.com.
 
-Pause timers — quick-pause buttons in the popup (5/10/30 minutes for the current site) and in settings (15/60 minutes global). Resumes automatically when the timer ends.
+Per-URL rules — override the mode for specific URLs. A pattern is "hostname/path" (end the path with * for a prefix match); the first matching rule wins, otherwise the global per-type modes apply.
+
+Long-press reveal — hold a blurred image or video for about 400ms to peek at it, then release to re-apply the filter. The follow-up click is suppressed so peeking a blurred linked image won't navigate away. Can be turned off in settings.
+
+Pause timers — quick-pause buttons in the popup (5/10/30 minutes for the current site) and in settings (15/60 minutes global). Resumes automatically when the timer ends. A site pause also covers embedded cross-origin frames on the tab.
 
 Working hours — optional schedule so Silenzio is active only during the hours and days you choose. Default Mon–Fri 09:00–17:00. The window means "active during" — outside the window, Silenzio stops applying.
 
@@ -48,7 +52,7 @@ CSS background-image is not currently filtered — only <img>, <video>, and <aud
 
 ## Single-purpose statement
 
-> Filter visual media (videos and images) and mute audio on web pages, with user-configured scope rules, pause timers, and a working-hours schedule.
+> Filter visual media (videos and images) and mute audio on web pages, with user-configured scope rules, per-URL overrides, pause timers, and a working-hours schedule.
 
 ---
 
@@ -58,7 +62,7 @@ These are the final plain-text wordings pasted into the dev-console privacy form
 
 **`storage`**
 
-> Used to persist the user's settings — video and image modes (Off / Blur / Blackout), scope mode and the list of sites used by allowlist/blocklist rules, pause-timer expiry timestamps, and the working-hours schedule — via chrome.storage.local so they survive browser restarts. The data is stored locally on the user's device and is never transmitted off it.
+> Used to persist the user's settings — video and image modes (Off / Blur / Blackout), scope mode and the list of sites used by allowlist/blocklist rules, per-URL override rules, pause-timer expiry timestamps, the working-hours schedule, and the long-press-reveal preference — via chrome.storage.local so they survive browser restarts. The data is stored locally on the user's device and is never transmitted off it.
 
 **`activeTab`**
 

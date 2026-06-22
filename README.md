@@ -17,7 +17,9 @@ Works on standard `<video>` players, short-form feeds (YouTube Shorts, LinkedIn 
 - **Per-type modes** — independent Off / Blur / Blackout for videos and images.
 - **Audio muting** — `<video>` and `<audio>` are muted whenever video filtering is active. Capture-phase listeners catch sites trying to unmute or swap sources.
 - **Scope** — apply everywhere, only on a list of sites, or everywhere *except* a list of sites. Hostname suffix match (one entry covers subdomains).
-- **Pause timers** — pause on the current site for 5/10/30 minutes from the popup, or pause globally for 15/60 minutes from settings. Auto-resumes.
+- **Per-URL rules** — override the mode for specific URLs. Pattern is `hostname/path` (end the path with `*` for a prefix match); first match wins, otherwise the global modes apply.
+- **Long-press reveal** — hold a blurred image or video for ~400ms to peek at it, release to re-apply the filter. The follow-up click is suppressed, so peeking a blurred linked image won't navigate. Toggle in settings.
+- **Pause timers** — pause on the current site for 5/10/30 minutes from the popup, or pause globally for 15/60 minutes from settings. Auto-resumes. Applies across embedded cross-origin frames on the tab.
 - **Working hours** — optional schedule so Silenzio is only active during a daily time window on selected days (default Mon–Fri 09:00–17:00).
 - **Dark mode** — popup and settings follow your browser/OS theme.
 
@@ -47,7 +49,9 @@ Click the toolbar icon to open the popup:
 
 - Mode rows for **Videos** and **Images** — Off / Blur / Blackout.
 - **Pause this site** — 5 / 10 / 30 minute buttons.
-- **Settings →** opens the full options page (scope rules, working hours, global pause).
+- **Settings →** opens the full options page (scope rules, per-URL rules, long-press reveal, working hours, global pause).
+
+To peek at a blurred element without changing any setting, press and hold it for ~400ms; release to re-blur.
 
 ## What's not handled (yet)
 

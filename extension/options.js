@@ -4,6 +4,8 @@ const DEFAULTS = {
   scope: { type: "all", sites: [] },
   pause: { globalUntil: 0, siteUntil: {} },
   schedule: { enabled: false, days: [1, 2, 3, 4, 5], start: "09:00", end: "17:00" },
+  peek: { enabled: true },
+  rules: [],
 };
 const DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -17,6 +19,8 @@ function merge(saved) {
       siteUntil: { ...(saved.pause?.siteUntil || {}) },
     },
     schedule: { ...DEFAULTS.schedule, ...(saved.schedule || {}) },
+    peek: { ...DEFAULTS.peek, ...(saved.peek || {}) },
+    rules: Array.isArray(saved.rules) ? saved.rules.slice() : [],
   };
 }
 
@@ -88,6 +92,34 @@ function renderDays(cfg) {
   });
 }
 
+function renderRules(cfg) {
+  const list = document.getElementById("rule-list");
+  list.innerHTML = "";
+  if (!cfg.rules.length) {
+    const p = document.createElement("p");
+    p.className = "empty";
+    p.textContent = "No rules yet.";
+    list.appendChild(p);
+    return;
+  }
+  cfg.rules.forEach((r, idx) => {
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    span.textContent = `${r.pattern} → ${r.mode}`;
+    const btn = document.createElement("button");
+    btn.textContent = "Remove";
+    btn.addEventListener("click", () => {
+      load((c) => {
+        c.rules.splice(idx, 1);
+        save(c);
+        renderAll(c);
+      });
+    });
+    li.append(span, btn);
+    list.appendChild(li);
+  });
+}
+
 function renderGlobalPause(cfg) {
   const status = document.getElementById("global-status");
   if (cfg.pause.globalUntil > Date.now()) {
@@ -104,8 +136,10 @@ function renderAll(cfg) {
   document.getElementById("schedule-enabled").checked = cfg.schedule.enabled;
   document.getElementById("schedule-start").value = cfg.schedule.start;
   document.getElementById("schedule-end").value = cfg.schedule.end;
+  document.getElementById("peek-enabled").checked = cfg.peek.enabled;
   renderSites(cfg);
   renderDays(cfg);
+  renderRules(cfg);
   renderGlobalPause(cfg);
 }
 
@@ -144,6 +178,31 @@ function init() {
       save(c);
       renderAll(c);
     });
+  });
+
+  document.getElementById("peek-enabled").addEventListener("change", (e) => {
+    load((c) => {
+      c.peek.enabled = e.target.checked;
+      save(c);
+      renderAll(c);
+    });
+  });
+
+  const rulePatternInput = document.getElementById("rule-pattern");
+  const ruleModeSelect = document.getElementById("rule-mode");
+  document.getElementById("rule-add-btn").addEventListener("click", () => {
+    const pattern = rulePatternInput.value.trim();
+    if (!pattern) return;
+    const mode = ruleModeSelect.value;
+    load((c) => {
+      c.rules.push({ pattern, mode });
+      save(c);
+      renderAll(c);
+      rulePatternInput.value = "";
+    });
+  });
+  rulePatternInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") document.getElementById("rule-add-btn").click();
   });
 
   ["schedule-start", "schedule-end"].forEach((id) => {
