@@ -4,7 +4,9 @@ A cross-browser extension that blurs or blacks out videos and images and mutes a
 
 Works on standard `<video>` players, short-form feeds (YouTube Shorts, LinkedIn feed, etc.), and all `<img>` content (JPG, PNG, GIF, WebP, SVG-as-img).
 
-**[Install from the Chrome Web Store →](https://chromewebstore.google.com/detail/pnlbpemienlnbiofmdjldbbnpfkfpndd)**
+**[Install from the Chrome Web Store →](https://chromewebstore.google.com/detail/pnlbpemienlnbiofmdjldbbnpfkfpndd)** ·
+
+**[Install for Firefox →](https://addons.mozilla.org/firefox/addon/silenzio/)** .
 
 ## Screenshots
 
@@ -37,7 +39,9 @@ To load from source (for development, or to try changes before a release reaches
 
 ### Firefox
 
-Not yet published on AMO. Load temporarily:
+Install from [Mozilla Add-ons (AMO)](https://addons.mozilla.org/firefox/addon/silenzio/). On first install, click the Silenzio toolbar icon → puzzle-piece menu → Silenzio → **Always allow on all websites** (one-time; Firefox MV3 requires this host-permission grant explicitly, or nothing will blur).
+
+To load from source instead (for development, or to try changes before a release reaches AMO):
 
 1. Open `about:debugging#/runtime/this-firefox`.
 2. Click **Load Temporary Add-on…** → pick [extension/manifest.json](extension/manifest.json).
